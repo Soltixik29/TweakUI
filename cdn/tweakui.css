@@ -1,199 +1,149 @@
-/* ==============================
-   TweakUI CSS v1 – complete single file
-   Utility-first + Components + Themeable
-============================== */
+/* ==========================================
+   TweakUI CSS – Tailwind Import + Components
+   Single File CDN Ready
+========================================== */
 
-/* ------------------------------
-  Variables / Theme
------------------------------- */
-:root {
-  --primary: #6366f1;
-  --secondary: #4f46e5;
-  --accent: #f59e0b;
-  --success: #22c55e;
-  --warning: #facc15;
-  --error: #ef4444;
-  --base: #1e293b;
-  --base-content: #e5e7eb;
-  --radius-sm: 4px;
-  --radius: 12px;
-  --radius-lg: 16px;
-  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
-  --shadow: 0 4px 6px rgba(0,0,0,0.1);
-  --shadow-lg: 0 10px 15px rgba(0,0,0,0.2);
-  --transition: all 0.2s ease-in-out;
+/* ------------------------------------------
+   Import Tailwind from CDN
+------------------------------------------ */
+@import url('https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css');
+
+/* ------------------------------------------
+   Buttons
+------------------------------------------ */
+.tui-btn { @apply px-4 py-2 font-semibold rounded inline-flex items-center justify-center transition-all; }
+.tui-btn-primary { @apply bg-indigo-600 text-white hover:bg-indigo-500; }
+.tui-btn-secondary { @apply bg-indigo-800 text-white hover:bg-indigo-700; }
+.tui-btn-accent { @apply bg-yellow-500 text-black hover:bg-yellow-400; }
+.tui-btn-success { @apply bg-green-500 text-white hover:bg-green-400; }
+.tui-btn-warning { @apply bg-yellow-400 text-black hover:bg-yellow-300; }
+.tui-btn-error { @apply bg-red-500 text-white hover:bg-red-400; }
+
+/* ------------------------------------------
+   Cards
+------------------------------------------ */
+.tui-card { 
+  @apply bg-gray-800 text-white p-6 rounded shadow transition-transform hover:-translate-y-1 hover:shadow-lg;
 }
 
-/* ------------------------------
-  Utilities
------------------------------- */
-/* Colors */
-.bg-primary{background-color:var(--primary);}
-.bg-secondary{background-color:var(--secondary);}
-.bg-accent{background-color:var(--accent);}
-.bg-success{background-color:var(--success);}
-.bg-warning{background-color:var(--warning);}
-.bg-error{background-color:var(--error);}
-.bg-base{background-color:var(--base);}
-.text-primary{color:var(--primary);}
-.text-secondary{color:var(--secondary);}
-.text-accent{color:var(--accent);}
-.text-success{color:var(--success);}
-.text-warning{color:var(--warning);}
-.text-error{color:var(--error);}
-.text-base-content{color:var(--base-content);}
+/* ------------------------------------------
+   Alerts
+------------------------------------------ */
+.tui-alert { @apply p-4 rounded font-medium flex items-center gap-2 mb-4; }
+.tui-alert-success { @apply bg-green-500 text-white; }
+.tui-alert-warning { @apply bg-yellow-400 text-black; }
+.tui-alert-error { @apply bg-red-500 text-white; }
 
-/* Spacing */
-.p-1{padding:0.25rem;}
-.p-2{padding:0.5rem;}
-.p-3{padding:0.75rem;}
-.p-4{padding:1rem;}
-.p-6{padding:1.5rem;}
-.px-2{padding-left:0.5rem;padding-right:0.5rem;}
-.py-2{padding-top:0.5rem;padding-bottom:0.5rem;}
-.m-2{margin:0.5rem;}
-.m-4{margin:1rem;}
+/* ------------------------------------------
+   Badges
+------------------------------------------ */
+.tui-badge { @apply px-3 py-1 rounded text-xs font-semibold inline-block; }
+.tui-badge-primary { @apply bg-indigo-600 text-white; }
+.tui-badge-secondary { @apply bg-indigo-800 text-white; }
+.tui-badge-success { @apply bg-green-500 text-white; }
+.tui-badge-warning { @apply bg-yellow-400 text-black; }
+.tui-badge-error { @apply bg-red-500 text-white; }
 
-/* Typography */
-.text-sm{font-size:0.875rem;}
-.text-base{font-size:1rem;}
-.text-lg{font-size:1.125rem;}
-.font-bold{font-weight:700;}
-.font-medium{font-weight:500;}
+/* ------------------------------------------
+   Modals
+------------------------------------------ */
+.tui-modal-overlay { @apply fixed inset-0 bg-black bg-opacity-60 hidden flex items-center justify-center z-50; }
+.tui-modal { @apply bg-gray-900 text-white rounded p-8 max-w-lg w-11/12 relative; }
+.tui-modal-close { @apply absolute top-2 right-2 cursor-pointer font-bold; }
 
-/* Layout */
-.flex{display:flex;}
-.items-center{align-items:center;}
-.justify-center{justify-content:center;}
-.justify-between{justify-content:space-between;}
-.grid{display:grid;}
-.grid-cols-2{grid-template-columns:repeat(2,1fr);}
-.grid-cols-3{grid-template-columns:repeat(3,1fr);}
-.gap-2{gap:0.5rem;}
-.gap-4{gap:1rem;}
+/* ------------------------------------------
+   Navbar
+------------------------------------------ */
+.tui-navbar { @apply flex justify-between items-center p-4 bg-indigo-600 text-white rounded; }
 
-/* Border radius & shadow */
-.rounded{border-radius:var(--radius);}
-.rounded-sm{border-radius:var(--radius-sm);}
-.rounded-lg{border-radius:var(--radius-lg);}
-.shadow-sm{box-shadow:var(--shadow-sm);}
-.shadow{box-shadow:var(--shadow);}
-.shadow-lg{box-shadow:var(--shadow-lg);}
+/* ------------------------------------------
+   Hero
+------------------------------------------ */
+.tui-hero { @apply text-center p-12 bg-indigo-800 text-white rounded; }
 
-/* Width/Height */
-.w-full{width:100%;}
-.h-full{height:100%;}
-.max-w-xs{max-width:20rem;}
-.max-w-sm{max-width:24rem;}
-.max-w-md{max-width:28rem;}
-.max-w-lg{max-width:32rem;}
+/* ------------------------------------------
+   Utilities – Colors
+------------------------------------------ */
+.tui-bg-primary { @apply bg-indigo-600; }
+.tui-bg-secondary { @apply bg-indigo-800; }
+.tui-bg-accent { @apply bg-yellow-500; }
+.tui-bg-success { @apply bg-green-500; }
+.tui-bg-warning { @apply bg-yellow-400; }
+.tui-bg-error { @apply bg-red-500; }
+.tui-bg-base { @apply bg-gray-900; }
 
-/* ------------------------------
-  Components
------------------------------- */
-/* Buttons */
-.tui-btn{
-  padding:0.5rem 1rem;
-  border-radius:var(--radius);
-  font-weight:600;
-  cursor:pointer;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  transition:var(--transition);
+.tui-text-primary { @apply text-indigo-600; }
+.tui-text-secondary { @apply text-indigo-800; }
+.tui-text-accent { @apply text-yellow-500; }
+.tui-text-success { @apply text-green-500; }
+.tui-text-warning { @apply text-yellow-400; }
+.tui-text-error { @apply text-red-500; }
+.tui-text-base-content { @apply text-white; }
+
+/* ------------------------------------------
+   Utilities – Spacing
+------------------------------------------ */
+.tui-p-1 { @apply p-1; }
+.tui-p-2 { @apply p-2; }
+.tui-p-3 { @apply p-3; }
+.tui-p-4 { @apply p-4; }
+.tui-p-6 { @apply p-6; }
+.tui-px-2 { @apply px-2; }
+.tui-py-2 { @apply py-2; }
+.tui-m-2 { @apply m-2; }
+.tui-m-4 { @apply m-4; }
+
+/* ------------------------------------------
+   Utilities – Typography
+------------------------------------------ */
+.tui-text-sm { @apply text-sm; }
+.tui-text-base { @apply text-base; }
+.tui-text-lg { @apply text-lg; }
+.tui-font-bold { @apply font-bold; }
+.tui-font-medium { @apply font-medium; }
+
+/* ------------------------------------------
+   Utilities – Layout
+------------------------------------------ */
+.tui-flex { @apply flex; }
+.tui-items-center { @apply items-center; }
+.tui-justify-center { @apply justify-center; }
+.tui-justify-between { @apply justify-between; }
+.tui-grid { @apply grid; }
+.tui-grid-cols-2 { @apply grid-cols-2; }
+.tui-grid-cols-3 { @apply grid-cols-3; }
+.tui-gap-2 { @apply gap-2; }
+.tui-gap-4 { @apply gap-4; }
+
+/* ------------------------------------------
+   Utilities – Border radius & Shadow
+------------------------------------------ */
+.tui-rounded { @apply rounded; }
+.tui-rounded-sm { @apply rounded-sm; }
+.tui-rounded-lg { @apply rounded-lg; }
+.tui-shadow-sm { @apply shadow-sm; }
+.tui-shadow { @apply shadow; }
+.tui-shadow-lg { @apply shadow-lg; }
+
+/* ------------------------------------------
+   Utilities – Width / Height
+------------------------------------------ */
+.tui-w-full { @apply w-full; }
+.tui-h-full { @apply h-full; }
+.tui-max-w-xs { @apply max-w-xs; }
+.tui-max-w-sm { @apply max-w-sm; }
+.tui-max-w-md { @apply max-w-md; }
+.tui-max-w-lg { @apply max-w-lg; }
+
+/* ------------------------------------------
+   Responsive Helpers
+------------------------------------------ */
+@media (min-width: 640px) {
+  .tui-sm\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
-.tui-btn-primary{background-color:var(--primary);color:white;}
-.tui-btn-primary:hover{background-color:#4f46e5;}
-.tui-btn-secondary{background-color:var(--secondary);color:white;}
-.tui-btn-secondary:hover{background-color:#4338ca;}
-.tui-btn-accent{background-color:var(--accent);color:white;}
-.tui-btn-success{background-color:var(--success);color:white;}
-.tui-btn-warning{background-color:var(--warning);color:black;}
-.tui-btn-error{background-color:var(--error);color:white;}
-
-/* Cards */
-.tui-card{
-  background-color:var(--base);
-  color:var(--base-content);
-  border-radius:var(--radius);
-  padding:1.5rem;
-  border:1px solid rgba(255,255,255,0.1);
-  box-shadow:var(--shadow);
-  transition:transform 0.2s, box-shadow 0.2s;
+@media (min-width: 768px) {
+  .tui-md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
-.tui-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);}
-
-/* Alerts */
-.tui-alert{
-  padding:1rem 1.5rem;
-  border-radius:var(--radius);
-  font-weight:500;
-  display:flex;
-  align-items:center;
-  gap:0.5rem;
-  margin-bottom:1rem;
-}
-.tui-alert-success{background-color:var(--success);color:white;}
-.tui-alert-warning{background-color:var(--warning);color:black;}
-.tui-alert-error{background-color:var(--error);color:white;}
-
-/* Badges */
-.tui-badge{
-  padding:0.25rem 0.75rem;
-  border-radius:var(--radius);
-  font-size:0.75rem;
-  font-weight:600;
-  display:inline-block;
-}
-.tui-badge-primary{background-color:var(--primary);color:white;}
-.tui-badge-secondary{background-color:var(--secondary);color:white;}
-.tui-badge-success{background-color:var(--success);color:white;}
-.tui-badge-warning{background-color:var(--warning);color:black;}
-.tui-badge-error{background-color:var(--error);color:white;}
-
-/* Modals */
-.tui-modal-overlay{
-  position:fixed;
-  inset:0;
-  background-color:rgba(0,0,0,0.6);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:1000;
-}
-.tui-modal{
-  background-color:var(--base);
-  color:var(--base-content);
-  border-radius:var(--radius);
-  padding:2rem;
-  max-width:500px;
-  width:90%;
-  position:relative;
-}
-.tui-modal-close{
-  position:absolute;
-  top:0.5rem;
-  right:0.5rem;
-  cursor:pointer;
-  font-weight:bold;
-}
-
-/* Navbar */
-.tui-navbar{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:1rem 2rem;
-  background-color:var(--primary);
-  color:white;
-  border-radius:var(--radius);
-}
-
-/* Hero */
-.tui-hero{
-  padding:3rem 2rem;
-  border-radius:var(--radius);
-  background-color:var(--secondary);
-  color:white;
-  text-align:center;
+@media (min-width: 1024px) {
+  .tui-lg\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
