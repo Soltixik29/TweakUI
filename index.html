@@ -3,21 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TweakUI CDN</title>
+<title>TweakUI – Tailwind CDN</title>
 <link rel="stylesheet" href="/cdn/tweakui.css">
-<script src="/cdn/tweakui.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-<style>
-/* Simple background animation */
-@keyframes pulseSlow {
-  0%,100%{transform:scale(1);opacity:0.3;}
-  50%{transform:scale(1.2);opacity:0.5;}
-}
-.bg-circle { position:absolute;border-radius:50%;opacity:0.3;animation:pulseSlow 8s ease-in-out infinite; }
-</style>
 </head>
-
-<body class="bg-base text-base-content relative overflow-x-hidden">
+<body class="tui-bg-base tui-text-base-content">
 
 <!-- Navbar -->
 <div class="tui-navbar max-w-7xl mx-auto mb-12">
@@ -29,22 +18,19 @@
 </div>
 
 <!-- Hero -->
-<div class="tui-hero max-w-4xl mx-auto mb-12 relative">
-  <h1 class="text-4xl font-bold mb-4">TweakUI CDN</h1>
-  <p class="text-lg">Pre-made components & utilities ready to use directly via CDN.</p>
-  <button class="tui-btn tui-btn-primary mt-6" data-tui-modal-target="exampleModal">Get Started</button>
-
-  <!-- Animated background circles -->
-  <div class="bg-circle w-72 h-72 bg-primary -top-16 -left-16 absolute"></div>
-  <div class="bg-circle w-96 h-96 bg-secondary -bottom-24 -right-32 absolute"></div>
+<div class="tui-hero max-w-4xl mx-auto mb-12">
+  <h1 class="text-4xl tui-font-bold mb-4">TweakUI CDN</h1>
+  <p class="text-lg mb-6">Tailwind-based utilities with TUI class naming and pre-made components.</p>
+  <button class="tui-btn tui-btn-primary">Get Started</button>
 </div>
 
 <!-- Components Section -->
 <section id="components" class="max-w-7xl mx-auto px-6 py-12 space-y-6">
-  <h2 class="text-3xl font-bold mb-6">Components</h2>
-  <div class="flex flex-wrap gap-4">
+  <h2 class="text-3xl tui-font-bold mb-6">Components</h2>
+  <div class="tui-flex tui-flex-wrap tui-gap-4">
     <div class="tui-btn tui-btn-primary">Primary Button</div>
     <div class="tui-btn tui-btn-secondary">Secondary Button</div>
+    <div class="tui-btn tui-btn-success">Success Button</div>
     <div class="tui-card">Card Component</div>
     <div class="tui-alert tui-alert-success">Success Alert</div>
     <div class="tui-alert tui-alert-error">Error Alert</div>
@@ -52,21 +38,5 @@
   </div>
 </section>
 
-<!-- Modal -->
-<div id="exampleModal" class="tui-modal-overlay flex items-center justify-center">
-  <div class="tui-modal">
-    <span class="tui-modal-close">×</span>
-    <h2 class="text-2xl font-bold mb-4">Welcome to TweakUI CDN</h2>
-    <p class="mb-4">Use pre-made components and utilities directly via our CDN.</p>
-    <button class="tui-btn tui-btn-primary" onclick="this.closest('.tui-modal-overlay').style.display='none'">Close</button>
-  </div>
-</div>
-
-<!-- Footer -->
-<footer class="border-t border-white/10 py-6 text-center text-sm text-base-content mt-12">
-  © 2025 TweakUI CDN — Ready-to-use components
-</footer>
-
-<script>feather.replace()</script>
 </body>
 </html>
