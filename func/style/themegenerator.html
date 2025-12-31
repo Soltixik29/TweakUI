@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>TweakUI – Theme Generator</title>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+:root {
+  --primary: #6366f1;
+  --bg: #020617;
+  --surface: #020617;
+}
+</style>
+</head>
+
+<body class="bg-slate-950 text-slate-100 min-h-screen flex">
+
+<!-- SIDEBAR -->
+<aside class="w-72 border-r border-white/10 p-6">
+  <h1 class="text-xl font-bold mb-8">🎨 Theme Generator</h1>
+
+  <label class="text-sm text-slate-400">Primary color</label>
+  <input type="color" id="primary"
+         class="w-full h-10 mt-2 cursor-pointer rounded" />
+
+  <button onclick="exportCSS()"
+    class="mt-6 w-full py-2 rounded bg-indigo-600 hover:bg-indigo-500 font-semibold">
+    Export CSS
+  </button>
+
+  <a href="/index.html"
+     class="block mt-4 text-center text-sm text-slate-400 hover:text-white">
+    ← Back to TweakUI
+  </a>
+</aside>
+
+<!-- CONTENT -->
+<main class="flex-1 p-10">
+  <h2 class="text-2xl font-bold mb-6">Live preview</h2>
+
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="p-6 rounded-xl bg-white/5 border border-white/10">
+      <h3 class="font-semibold mb-2">Card</h3>
+      <p class="text-slate-400 text-sm">
+        This card uses generated CSS variables.
+      </p>
+      <button
+        class="mt-4 px-4 py-2 rounded bg-[var(--primary)] text-white">
+        Primary button
+      </button>
+    </div>
+
+    <div class="p-6 rounded-xl bg-white/5 border border-white/10">
+      <label class="text-sm text-slate-400">Input</label>
+      <input
+        class="mt-2 w-full px-3 py-2 rounded bg-slate-900 border border-white/10 focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
+        placeholder="Type here..." />
+    </div>
+  </div>
+
+  <h3 class="text-xl font-semibold mt-12 mb-4">CSS Variables</h3>
+  <pre id="output"
+       class="bg-black/50 border border-white/10 rounded-lg p-4 text-sm overflow-x-auto"></pre>
+</main>
+
+<script>
+const picker = document.getElementById("primary");
+const output = document.getElementById("output");
+const root = document.documentElement;
+
+picker.value = getComputedStyle(root).getPropertyValue("--primary").trim();
+
+picker.addEventListener("input", () => {
+  root.style.setProperty("--primary", picker.value);
+  updateOutput();
+  localStorage.setItem("tweakui-theme", picker.value);
+});
+
+const saved = localStorage.getItem("tweakui-theme");
+if (saved) {
+  root.style.setProperty("--primary", saved);
+  picker.value = saved;
+}
+
+function updateOutput() {
+  output.textContent = `
+:root {
+  --primary: ${getComputedStyle(root).getPropertyValue("--primary").trim()};
+}
+  `.trim();
+}
+
+function exportCSS() {
+  navigator.clipboard.writeText(output.textContent);
+  alert("CSS copied ✨");
+}
+
+updateOutput();
+</script>
+
+</body>
+</html>
